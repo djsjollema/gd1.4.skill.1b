@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Tank : MonoBehaviour
 {
+    [SerializeField] Bullet bullet;
     Vector3 velocity;
     Vector3 direction;
     float speed;
@@ -24,7 +25,15 @@ public class Tank : MonoBehaviour
         moveTank();
         BoxingScreen();
         SteeringTank();
+        Shoot();
         
+    }
+
+    private void Shoot()
+    {
+        if (Input.GetKeyUp(KeyCode.Space)){
+            Bullet InstanceOfBullet = Instantiate(bullet);
+        }  
     }
 
     private void SteeringTank()
